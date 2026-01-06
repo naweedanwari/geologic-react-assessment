@@ -1,6 +1,19 @@
 
-const ImageTags = ({ allTags, tags, activeTags: [] }) => {
-  console.log(allTags)
+const ImageTags = ({ allTags, tags, activeTagFilters, setActiveTags }) => {
+  const toggleTag = (tag) => {
+    setActiveTags((prev) => {
+      console.log('toggling tag', tag, activeTagFilters)
+      const exists = prev.some(t => t.id === tag.id)
+
+      if (exists) {
+        // remove
+        return prev.filter(t => t.id !== tag.id)
+      } else {
+        // add
+        return [...prev, tag]
+      }
+    })
+  }
   return (
     <>
       { allTags?.length &&
@@ -14,12 +27,7 @@ const ImageTags = ({ allTags, tags, activeTags: [] }) => {
               <>
                 { tag &&
                   <button type="button"
-                  onClick={() => {
-                    console.log(activeTags);
-                    // if (activeTags.find(t => t.name === tag.name)) {
-                      
-                    // }
-                  }}
+                  onClick={() => toggleTag(tag)}
                   className="me-2 mt-2 btn btn-primary">
                     { tag.name }
                   </button>

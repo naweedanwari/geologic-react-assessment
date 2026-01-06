@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react'
 import ImageCard from './image-card'
 
 
-const ImagesList = () => {
+const ImagesList = ({activeTagFilters, setActiveTags}) => {
   const [images, setImages] = useState([])
   const [tags, setTags] = useState([])
   const [errorMessage, setErrorMessage] = useState('')
-  const [activeTagFilters, setActiveTags] = useState('')
 
   useEffect(() => {
     fetch('/data/images.json', {
@@ -61,6 +60,7 @@ const ImagesList = () => {
               allTags={tags}
               image={item}
               activeTagFilters={activeTagFilters}
+              setActiveTags={setActiveTags}
             />
           )
         })}

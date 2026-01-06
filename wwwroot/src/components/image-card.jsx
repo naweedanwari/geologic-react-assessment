@@ -1,7 +1,6 @@
 import ImageTags from './image-tags'
 
-
-const ImageCard = ({ image, allTags }) => {
+const ImageCard = ({ image, allTags, activeTagFilters, setActiveTags }) => {
   return (
     <div className="image-item col-3 p-2">
       <div
@@ -20,6 +19,8 @@ const ImageCard = ({ image, allTags }) => {
         key={`${image.id}-tags`}
         allTags={allTags}
         tags={image.tags}
+        activeTagFilters={activeTagFilters}
+        setActiveTags={setActiveTags}
       />
     </div>
   )

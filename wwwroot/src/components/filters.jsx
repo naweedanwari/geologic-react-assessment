@@ -1,6 +1,5 @@
 // A list defining all currently applied tag filters
-const activeTagFilters = [];
-const Filters = () => {
+const Filters = (activeTagFilters, setActiveTags) => {
   return (
     <div className='filters-container container mt-3'>
       <div className='row mb-2 w-100'>
@@ -24,12 +23,12 @@ const Filters = () => {
           <div className='row'>
             <div className="input-group" style={{ maxWidth: '9rem' }}>
               <div className="input-group-prepend">
-                <span class="input-group-text">&gt;=</span>
+                <span className="input-group-text">&gt;=</span>
               </div>
-              <input type="number" class="form-control" step="0.1" />
+              <input type="number" className="form-control" step="0.1" />
             </div>
             <div className="input-group" style={{ maxWidth: '9rem' }}>
-              <input type="number" class="form-control" step="0.1" />
+              <input type="number" className="form-control" step="0.1" />
               <div className="input-group-append">
                 <span className="input-group-text">&lt;=</span>
               </div>
@@ -46,16 +45,16 @@ const Filters = () => {
             <div className='col-auto'>
               <div className='row'>
                 <h5 className='col mb-0 pb-0 mt-2'>Width:</h5>
-                <div class="input-group" style={{ maxWidth: '10rem' }}>
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">&gt;=</span>
+                <div className="input-group" style={{ maxWidth: '10rem' }}>
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">&gt;=</span>
                   </div>
-                  <input type="number" class="form-control" step="100" />
+                  <input type="number" className="form-control" step="100" />
                 </div>
-                <div class="input-group" style={{ maxWidth: '10rem' }}>
-                  <input type="number" class="form-control" step="100" />
-                  <div class="input-group-append">
-                    <span class="input-group-text">&lt;=</span>
+                <div className="input-group" style={{ maxWidth: '10rem' }}>
+                  <input type="number" className="form-control" step="100" />
+                  <div className="input-group-append">
+                    <span className="input-group-text">&lt;=</span>
                   </div>
                 </div>
               </div>
@@ -63,16 +62,16 @@ const Filters = () => {
             <div className='col-auto'>
               <div className='row'>
                 <h5 className='col mb-0 pb-0 mt-2'>Height:</h5>
-                <div class="input-group" style={{ maxWidth: '10rem' }}>
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">&gt;=</span>
+                <div className="input-group" style={{ maxWidth: '10rem' }}>
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">&gt;=</span>
                   </div>
-                  <input type="number" class="form-control" step="100" />
+                  <input type="number" className="form-control" step="100" />
                 </div>
-                <div class="input-group" style={{ maxWidth: '10rem' }}>
-                  <input type="number" class="form-control" step="100" />
-                  <div class="input-group-append">
-                    <span class="input-group-text">&lt;=</span>
+                <div className="input-group" style={{ maxWidth: '10rem' }}>
+                  <input type="number" className="form-control" step="100" />
+                  <div className="input-group-append">
+                    <span className="input-group-text">&lt;=</span>
                   </div>
                 </div>
               </div>
