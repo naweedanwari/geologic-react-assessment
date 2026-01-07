@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import ImageCard from './image-card'
 
 
-const ImagesList = ({tags, setTags, activeTagFilters, setActiveTags, fileDimensionFilters}) => {
+const ImagesList = ({activeTagFilters, setActiveTags, fileDimensionFilters}) => {
   const [images, setImages] = useState([])
+  const [tags, setTags] = useState([])
   const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
@@ -17,13 +18,30 @@ const ImagesList = ({tags, setTags, activeTagFilters, setActiveTags, fileDimensi
       .then((data) => {
         if (data?.length) {
           setImages(data)
-          console.log(data)
         } else {
           setErrorMessage('No images found')
         }
       })
       .catch((err) => {
         setErrorMessage('Failed to load images')
+      })
+
+    fetch('/data/tags.json', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data?.length) {
+          setTags(data)
+        } else {
+          setErrorMessage('No tags found')
+        }
+      })
+      .catch((err) => {
+        setErrorMessage('Failed to load tags')
       })
   }, [])
 

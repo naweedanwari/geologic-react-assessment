@@ -2,7 +2,6 @@
 const ImageTags = ({ allTags, tags, activeTagFilters, setActiveTags }) => {
   const toggleTag = (tag) => {
     setActiveTags((prev) => {
-      console.log('toggling tag', tag, activeTagFilters)
       const exists = prev.some(t => t.id === tag.id)
 
       if (exists) {
