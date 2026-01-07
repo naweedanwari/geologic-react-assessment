@@ -1,25 +1,14 @@
 
 const ActiveFilterCard = ({ tag, setActiveTags }) => {
-
-    const removeTag = (tag) => {
-    setActiveTags((prev) => {
-      const exists = prev.some(t => t.id === tag.id)
-
-      if (exists) {
-        // remove
-        return prev.filter(t => t.id !== tag.id)
-      } else {
-        // add
-        return [...prev, tag]
-      }
-    })
-}
-
   return (
-    <div>
-        {tag.name}
-        <button onClick={removeTag(tag)}></button>
+    <div className="mx-1">
+        <button onClick={() => setActiveTags(prev =>
+        prev.filter(t => t.id !== tag.id)
+        )}>
+        {tag.name}&nbsp;X
+        </button>
     </div>
+    
   )
 }
 
